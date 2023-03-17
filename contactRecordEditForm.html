@@ -1,0 +1,22 @@
+<template>
+    <!--
+        This is the record edit page where the contacts are updated
+    -->
+    <lightning-record-edit-form record-id={contactRecord.value.contactId} object-api-name="Contact" onsuccess={successHandler} 
+    onerror={errorHandler}>
+    <div class="slds-grid">
+        <div class="slds-col slds-size_2-of-2">
+            <lightning-card title="Contact Information">
+        <lightning-messages> </lightning-messages>
+        <lightning-output-field field-name="Id" class="slds-assistive-text"></lightning-output-field>
+        <lightning-input-field field-name="FirstName" value={contactRecord.value.firstName}></lightning-input-field>
+        <lightning-input-field field-name="LastName" value={contactRecord.value.lastName}></lightning-input-field>
+        <lightning-input-field field-name="MobilePhone" value={contactRecord.value.mobilePhone}></lightning-input-field>
+        <lightning-input-field field-name="Email" value={contactRecord.value.email}></lightning-input-field>
+        <lightning-input-field field-name="Title" value={contactRecord.value.title}></lightning-input-field>
+        <lightning-button label="Update" type="submit" name="update" variant="brand" class="slds-align_absolute-center"></lightning-button>
+    </lightning-card>
+    </div>
+    </div>
+    </lightning-record-edit-form>
+</template>

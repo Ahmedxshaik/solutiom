@@ -1,0 +1,42 @@
+<!--
+    This component is the parent component which has two child components.
+    The child components are created to main modularity concepts.
+    This component is a quick action which can be opened from the account page.
+    There is a quick action button called account manager which will open this page
+    This component has the flexibility to search contacts using their last name.
+    You can select a contact from the list and update the contact.
+
+-->
+<template>
+    <lightning-quick-action-panel header="Contact Manager">
+        
+       <lightning-layout horizontalalign="spread">
+        
+        <lightning-layout-item size="5" padding="around-large"  >
+            <!-- Input text to capture last name of the contact to search-->
+            <lightning-input type="text" name="contact filter" label = "Contact Last Name" placeholder="Enter Last Name" onchange={nameChangeHandler}></lightning-input>
+           <br/>
+           <!--Child component which will be used to show the contacts in a list-->
+            <template iterator:it={contacts}>
+                    <c-contact-list-l-w-c contact-detail={it} key = {it.value.id}></c-contact-list-l-w-c>
+             </template>
+            
+        </lightning-layout-item>
+        <!-- This is the component which will show the edit page of the contact-->
+        <lightning-layout-item size="7" padding="around-small">
+           <template if:true={selectedContact}>
+            
+            <c-contact-record-edit-form contact-record={selectedContact}></c-contact-record-edit-form>
+            
+        </template>
+        <template if:false={selectedContact}>
+            Select a contact to update
+        </template>
+        
+        </lightning-layout-item>
+   
+       </lightning-layout>
+    
+        
+    </lightning-quick-action-panel>
+</template>

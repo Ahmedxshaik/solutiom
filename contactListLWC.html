@@ -1,0 +1,12 @@
+<template>
+    <!-- 
+        This component is used to display the contacts of an account in a list 
+        This component is a child to ContactManager
+    -->
+    <div class="slds-p-around_medium lgc-bg" >
+        <lightning-tile label={contactDetail.value.lastName} type="media" onclick={tileClickHandler}>
+            <lightning-icon slot="media" icon-name="standard:contact"></lightning-icon>
+            {contactDetail.value.firstName}
+        </lightning-tile>
+    </div>
+</template>
